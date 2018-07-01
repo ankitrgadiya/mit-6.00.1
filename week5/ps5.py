@@ -53,6 +53,14 @@ def get_story_string():
     f.close()
     return story
 
+def decrypt_story():
+    """
+    Decrypts the story
+    """
+    encrypted_story = CiphertextMessage(get_story_string())
+    return encrypted_story.decrypt_message()
+
+
 WORDLIST_FILENAME = 'words.txt'
 
 class Message(object):
@@ -255,3 +263,6 @@ print('Actual Output:', plaintext.get_message_text_encrypted())
 ciphertext = CiphertextMessage('jgnnq')
 print('Expected Output:', (24, 'hello'))
 print('Actual Output:', ciphertext.decrypt_message())
+
+# Prints the decrypted story
+print(decrypt_story())
